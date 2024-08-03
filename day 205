@@ -1,0 +1,23 @@
+https://www.geeksforgeeks.org/problems/the-celebrity-problem/1
+int celebrity(vector<vector<int> >& mat) {
+       int zerorow=-1;
+      int n=mat.size();
+      if(n<2)return 0;
+      int m=mat[0].size();
+      for(int i=0;i<n;i++){
+          for(int j=0;j<m;j++){
+              if(mat[i][j]==1)break;
+              else if(mat[i][j]==0 and j==m-1){
+                  zerorow=i;
+              }
+          }
+      }
+      int ans=-1;
+     for(int i=0;i<n;i++){
+        //  if(i==zerorow)continue;
+          if(mat[i][zerorow]!=1 and i!=zerorow){
+            return -1; 
+         }
+     }
+     return zerorow;
+    }
