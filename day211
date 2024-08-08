@@ -1,0 +1,10 @@
+https://www.geeksforgeeks.org/problems/maximize-arrii-of-an-array0026/1
+
+int Maximize(vector<int> arr) {
+      sort(arr.begin(),arr.end());
+      long ans=0;
+      for(int i=0;i<arr.size();i++){
+          ans=(ans+((long)arr[i]*i)%1000000007)%1000000007;
+      }
+      return (int)ans;
+    }
