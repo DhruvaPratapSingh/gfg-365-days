@@ -1,0 +1,25 @@
+https://www.geeksforgeeks.org/problems/rotate-a-linked-list/1
+
+ Node* rotate(Node* head, int k) {
+        if (!head || k == 0) return head;  
+    Node* temp = head;
+    int length = 1; 
+
+    while (temp->next) {
+        temp = temp->next;
+        length++;
+    }
+
+   
+    k = k % length;
+    if (k == 0) return head;  
+
+    temp->next = head;  
+    for (int i = 0; i < k; i++) {
+        temp = temp->next;
+    }
+
+    head = temp->next;  
+    temp->next = NULL; 
+
+    return head;
