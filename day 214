@@ -1,0 +1,10 @@
+https://www.geeksforgeeks.org/problems/sum-of-middle-elements-of-two-sorted-arrays2305/1
+
+int SumofMiddleElements(vector<int> &arr1, vector<int> &arr2) {
+      
+        int m=arr2.size();
+        for(int ele:arr2)arr1.push_back(ele);
+        sort(arr1.begin(),arr1.end());
+        int n=arr1.size();
+        return arr1[n/2]+arr1[n/2-1];
+    }
