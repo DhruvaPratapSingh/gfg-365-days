@@ -1,0 +1,18 @@
+https://www.geeksforgeeks.org/problems/cutted-segments1642/1
+
+int helper(int n,int x,int y,int z,vector<int>&dp){
+        if(n<0)return INT_MIN;
+        if(n==0)return 0;
+        if(dp[n]!=-1)return dp[n];
+        int a=helper(n-x,x,y,z,dp);
+        int b=helper(n-y,x,y,z,dp);
+        int c=helper(n-z,x,y,z,dp);
+        return dp[n]= 1+max(a,max(b,c));
+        
+    }
+    int maximizeTheCuts(int n, int x, int y, int z)
+    {
+        vector<int>dp(n+1,-1);
+      int res=helper(n,x,y,z,dp);
+        return max(res,0);
+    }
