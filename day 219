@@ -1,0 +1,17 @@
+https://www.geeksforgeeks.org/problems/product-array-puzzle4525/1
+
+
+ vector<long long int> productExceptSelf(vector<long long int>& nums) {
+     vector<long long>ans;
+     for(int i=0;i<nums.size();i++){
+         long long mult=1;
+         for(int j=0;j<nums.size();j++){
+             if(i==j)continue;
+             else{
+                 mult*=nums[j];
+             }
+         }
+         ans.push_back(mult);
+     }
+     return ans;
+    }
