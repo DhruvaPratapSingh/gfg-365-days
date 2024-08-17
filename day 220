@@ -1,1 +1,15 @@
 
+https://www.geeksforgeeks.org/problems/split-an-array-into-two-equal-sum-subarrays/1
+
+ bool canSplit(vector<int>& arr) {
+        int n=arr.size();
+        int totalsum=0;
+        for(int ele:arr)totalsum+=ele;
+        int prefixsum=0;
+        for(int i=0;i<n;i++){
+            prefixsum+=arr[i];
+            int suffixsum=totalsum-prefixsum;
+            if(prefixsum==suffixsum)return true;
+        }
+        return false;
+    }
