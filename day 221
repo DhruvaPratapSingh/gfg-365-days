@@ -1,0 +1,11 @@
+https://www.geeksforgeeks.org/problems/kth-smallest-element5635/1
+
+int kthSmallest(vector<int> &arr, int k) {
+        priority_queue<int,vector<int>,greater<int>>pq;
+        for(int ele:arr)pq.push(ele);
+        k--;
+        while(k--){
+            pq.pop();
+        }
+        return pq.top();
+    }
