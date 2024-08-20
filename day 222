@@ -1,0 +1,66 @@
+https://www.geeksforgeeks.org/problems/burning-tree/1
+
+
+class Solution {
+    private:
+    Node* createmap(Node* root,int target,map<Node*,Node*>&nodetoparent){
+        queue<Node*>q;
+        q.push(root);
+        Node* res=NULL;
+        nodetoparent[root]=NULL;
+        while(!q.empty()){
+            Node* front=q.front();
+            q.pop();
+            if(front->data==target)res=front;
+            if(front->left){
+                q.push(front->left);
+                nodetoparent[front->left]=front;
+            }
+            if(front->right){
+                q.push(front->right);
+                nodetoparent[front->right]=front;
+            }
+        }
+        return res;
+    }
+    int burn_tree(Node* root,map<Node*,Node*>&nodetoparent){
+        unordered_map<Node*,bool>vis;
+        queue<Node*>q;
+        q.push(root);
+        vis[root]=1;
+        int ans=0;
+        while(!q.empty()){
+            int n=q.size();
+            bool flag=0;
+            while(n--){
+                Node* front=q.front();
+                q.pop();
+                if(front->left and !vis[front->left]){
+                    flag=1;
+                    q.push(front->left);
+                    vis[front->left]=1;
+                }
+                if(front->right and !vis[front->right]){
+                    flag=1;
+                    q.push(front->right);
+                    vis[front->right]=1;
+                }
+                if(nodetoparent[front] and !vis[nodetoparent[front]]){
+                    flag=1;
+                    q.push(nodetoparent[front]);
+                    vis[nodetoparent[front]]=1;
+                }
+            }
+            if(flag)ans++;
+        }
+        return ans;
+    }
+  public:
+    int minTime(Node* root, int target) 
+    {
+       map<Node*,Node*>nodetoparent;
+       Node* targetnode=createmap(root,target,nodetoparent);
+       int ans=burn_tree(targetnode,nodetoparent);
+       return ans;
+    }
+};
