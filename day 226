@@ -1,0 +1,15 @@
+https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1
+
+int helper(int i,int w,vector<int>& wt, vector<int>& val){
+        if(i<0 || w<0)return 0;
+        int take=0;
+        if(wt[i]<=w) {
+            take= val[i]+helper(i-1,w-wt[i],wt,val);
+        }
+          int nottake=helper(i-1,w,wt,val);
+        return max(take,nottake);
+    }
+    int knapSack(int W, vector<int>& wt, vector<int>& val) {
+        int n=wt.size();
+       return helper(n-1,W,wt,val);
+    }
