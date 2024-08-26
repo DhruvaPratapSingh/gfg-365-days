@@ -1,0 +1,43 @@
+https://www.geeksforgeeks.org/problems/maximum-difference-1587115620/1
+ int findMaxDiff(vector<int> &arr) {
+        int n=arr.size();
+    vector<int>next(n,0);
+    stack<int>st1;
+    st1.push(0);
+    for(int i=1;i<n;i++){
+        while(!st1.empty() and arr[i]<arr[st1.top()]){
+            next[st1.top()] = arr[i];
+            st1.pop();
+        }
+        st1.push(i);
+    }
+    // while(not st1.empty()){
+    //     next[st1.top()] = 0;
+    //     st1.pop();
+    // }
+    // for(int ele:next)cout<<ele<<" ";
+    // cout<<endl;
+    vector<int>prev(n,0);
+    reverse(arr.begin(),arr.end());
+    stack<int>st;
+    st.push(0);
+    for(int i=1;i<n;i++){
+        while(!st.empty() and arr[i]<arr[st.top()]){
+            prev[st.top()] = arr[i];
+            st.pop();
+        }
+        st.push(i);
+    }
+    // while(not st.empty()){
+    //     prev[st.top()] = 0;
+    //     st.pop();
+    // }
+    reverse(prev.begin(),prev.end());
+    // for(int ele:prev)cout<<ele<<" ";
+    // cout<<endl;
+    int maxi=-1e9;
+    for(int i=0;i<n;i++){
+        maxi=max(maxi,abs(next[i]-prev[i]));
+    }
+        return maxi;
+    }
