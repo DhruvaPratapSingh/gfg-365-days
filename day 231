@@ -1,0 +1,22 @@
+https://www.geeksforgeeks.org/problems/find-length-of-loop/1
+int looplen(Node* slow,Node* fast){
+        int l=1;
+        fast=fast->next;
+        while(slow!=fast){
+            fast=fast->next;
+            l++;
+        }
+        return l;
+    }
+    int countNodesinLoop(struct Node *head) {
+        Node* slow=head;
+        Node* fast=head;
+        while(fast!=NULL and fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast){
+                return looplen(slow,fast);
+            }
+        }
+        return 0;
+    }
