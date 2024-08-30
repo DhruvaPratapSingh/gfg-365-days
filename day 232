@@ -1,0 +1,33 @@
+https://www.geeksforgeeks.org/problems/n-queen-problem0315/1
+
+   bool isSafe(int row, int col, vector<int>& Board) {
+        for (int prevCol = 0; prevCol < col; prevCol++) {
+            int prevRow = Board[prevCol];
+            if (prevRow == row || abs(prevRow - row) == abs(prevCol - col)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void solve(int col, int n, vector<int>& Board, vector<vector<int>>& results) {
+        if (col == n) {
+            results.push_back(Board);
+            return;
+        }
+
+        for (int row = 1; row <= n; row++) {
+            if (isSafe(row, col, Board)) {
+                Board[col] = row;
+                solve(col + 1, n, Board, results);
+                Board[col] = 0; // Backtrack
+            }
+        }
+    }
+
+    vector<vector<int>> nQueen(int n) {
+        vector<vector<int>> results;
+        vector<int> Board(n, 0);
+        solve(0, n, Board, results);
+        return results;
+    }
