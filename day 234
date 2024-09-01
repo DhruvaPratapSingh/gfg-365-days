@@ -1,0 +1,32 @@
+https://www.geeksforgeeks.org/problems/max-sum-path-in-two-arrays/1
+
+
+ int maxPathSum(vector<int> &arr1, vector<int> &arr2) {
+       int n=arr1.size(),m=arr2.size();
+       int i=0,j=0;
+       int suma=0,sumb=0;
+       int res=0;
+       while(i<n and j<m){
+           if(arr1[i]<arr2[j]){
+               suma+=arr1[i++];
+           }
+           else if(arr2[j]<arr1[i]){
+               sumb+=arr2[j++];
+           }
+           else {
+               res+=max(suma,sumb)+arr1[i];
+               suma=0;
+               sumb=0;
+               i++;
+               j++;
+           }
+       }
+       while(i<n){
+           suma+=arr1[i++];
+       }
+       while(j<m){
+           sumb+=arr2[j++];
+       }
+       res+=max(suma,sumb);
+       return res;
+    }
