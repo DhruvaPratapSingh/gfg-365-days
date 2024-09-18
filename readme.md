@@ -1,11 +1,10 @@
-![Computer-Science-Pictures-HD](https://github.com/user-attachments/assets/a0d37fc5-5902-4bb6-b014-9a5291dcd975)
 
  completed #days
  
-## day 251
+## day 251 ⤵️⤵️
 [problem link](https://www.geeksforgeeks.org/problems/parenthesis-checker2744/1)
 
-# code
+# code 🚀💯
 ```
  bool ispar(string x)
     {
@@ -23,10 +22,10 @@
     }
 ```
 
-## day 252
+## day 252 ⤵️⤵️
 [problem link](https://www.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1)
 
-# code
+# code 🚀✅
 ```
     string reverseWords(string str) {
         reverse(str.begin(),str.end());
