@@ -22,3 +22,23 @@
         return st.size()==0;
     }
 ```
+
+## day 252
+[problem link](https://www.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1)
+
+# code
+```
+    string reverseWords(string str) {
+        reverse(str.begin(),str.end());
+        int i=0,j=0,n=str.size();
+        while(j<n){
+            if(str[j]=='.'){
+                reverse(str.begin()+i,str.begin()+j);
+                i=j+1;
+            }
+            j++;
+        }
+        reverse(str.begin()+i,str.end());
+        return str;
+    }
+```
