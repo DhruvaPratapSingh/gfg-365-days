@@ -41,3 +41,20 @@
         return str;
     }
 ```
+## day 253 🎈
+[problem link](https://www.geeksforgeeks.org/problems/facing-the-sun2126/1)
+
+# code 🧑‍💻🧑‍💻🚀
+```
+ int countBuildings(vector<int> &height) {
+        stack<int>st;
+        int n=height.size();
+        for(int i=n-1;i>=0;i--){
+            while(!st.empty() and height[i]>=height[st.top()]){
+                st.pop();
+            }
+            st.push(i);
+        }
+        return st.size();
+    }
+```
