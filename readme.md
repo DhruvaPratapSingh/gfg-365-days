@@ -58,3 +58,30 @@
         return st.size();
     }
 ```
+
+
+
+## day 254☠️🎉
+
+[problem link](https://www.geeksforgeeks.org/problems/clone-a-linked-list-with-next-and-random-pointer/1)
+
+
+# code ➡️🤺
+
+```
+ Node *copyList(Node *head) {
+        Node* temp=head;
+        unordered_map<Node*,Node*>m;
+        while(temp!=NULL){
+            m[temp]=new Node(temp->data);
+            temp=temp->next;
+        }
+        temp=head;
+        while(temp!=NULL){
+            m[temp]->next=m[temp->next];
+            m[temp]->random=m[temp->random];
+            temp=temp->next;
+        }
+        return m[head];
+    }
+```
