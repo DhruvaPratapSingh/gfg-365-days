@@ -85,3 +85,35 @@
         return m[head];
     }
 ```
+
+## day 255 🚀🎉
+
+[problem link](https://www.geeksforgeeks.org/problems/longest-prefix-suffix2527/1)
+
+# code 🧑‍💻⤵️
+
+```
+ int lps(string str) {
+        int n=str.size();
+         vector<int>lps(n,0);
+    int pref=0;
+    int suf=1;
+    while(suf<n){
+        if(str[pref]==str[suf]){
+            lps[suf]=pref+1;
+            pref++;
+            suf++;
+        }
+        else{
+            if(pref==0){
+                lps[suf]=0;
+                suf++;
+            }
+            else{
+                pref=lps[pref-1];
+            }
+        }
+    }
+    return lps[n-1];
+    }
+```
