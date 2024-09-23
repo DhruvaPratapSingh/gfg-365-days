@@ -148,3 +148,23 @@
     return lps[n-1];
     }
 ```
+
+
+## day 57
+[problem link](https://www.geeksforgeeks.org/problems/find-missing-and-repeating2512/1)
+
+# code
+
+```
+sort(arr.begin(),arr.end());
+      int mis=0,rep=0;
+      for(int i=0;i<n-1;i++){
+          if(arr[i]==arr[i+1]) rep=arr[i];
+      }
+      int a=1;
+      for(int i=0;i<n;i++){
+          if(arr[i]==a)a++;
+      }
+      return {rep,a};
+    }
+```
