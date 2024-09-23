@@ -150,7 +150,7 @@
 ```
 
 
-## day 57
+## day 257
 [problem link](https://www.geeksforgeeks.org/problems/find-missing-and-repeating2512/1)
 
 # code
