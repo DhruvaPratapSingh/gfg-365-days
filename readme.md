@@ -168,3 +168,34 @@ sort(arr.begin(),arr.end());
       return {rep,a};
     }
 ```
+
+## day 258
+[[problem link](https://www.geeksforgeeks.org/problems/check-if-linked-list-is-pallindrome/1)
+
+# code
+
+```
+Node* rev(Node* head){
+        Node* prev=NULL;
+        Node* curr=head;
+        while(curr!=NULL){
+            Node* next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        return prev;
+    }
+    bool isPalindrome(Node *head) {
+        Node* revlist=rev(head);
+        Node* tem=head;
+        Node* tem2=revlist;
+        while(tem!=NULL){
+            if(tem->data!=tem2->data)return 0;
+            // cout<<tem->data<<" "<<tem2->data;
+            tem=tem->next;
+            tem2=tem2->next;
+        }
+        return 1;
+    }
+```
