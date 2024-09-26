@@ -199,3 +199,15 @@ Node* rev(Node* head){
         return 1;
     }
 ```
+## day 259
+[problem link](https://www.geeksforgeeks.org/problems/roof-top-1587115621/1)
+```
+int maxStep(vector<int>& arr) {
+        int maxi=0,count=0;
+        for(int i=1;i<arr.size();i++){
+            count = arr[i-1]<arr[i] ? count+1:0;
+            maxi=max(maxi,count);
+        }
+        return maxi;
+    }
+```
