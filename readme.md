@@ -211,3 +211,50 @@ int maxStep(vector<int>& arr) {
         return maxi;
     }
 ```
+
+## day 260
+[problem link](https://www.geeksforgeeks.org/problems/maximum-of-all-subarrays-of-size-k3101/1)
+# code
+# 1️⃣ sliding window gives tle
+```
+ vector<int> max_of_subarrays(int k, vector<int> &arr) {
+          vector<int>ans;
+        int i=0,j=0,n=arr.size();
+        while(j<n){
+            if(j-i+1<k){
+                j++;
+            }
+             else if(j-i+1==k){
+                 int val=*max_element(arr.begin()+i,arr.begin()+j+1);
+                ans.push_back(val);
+                i++;
+                j++;
+            }
+        }
+        return ans;
+    }
+```
+
+# 2️⃣ deque method
+```
+vector<int> max_of_subarrays(int k, vector<int> &arr) {
+          vector<int>ans;
+        int i=0,j=0,n=arr.size();
+        deque<int>dq;
+        while(j<n){
+            while(!dq.empty() and arr[j]>dq.back()){
+                dq.pop_back();
+            }
+            dq.push_back(arr[j]);
+             if(j-i+1==k){
+                ans.push_back(dq.front());
+                if(dq.front()==arr[i]){
+                   dq.pop_front(); 
+                }
+                i++;
+            }
+                j++;
+        }
+        return ans;
+    }
+```
