@@ -258,3 +258,20 @@ vector<int> max_of_subarrays(int k, vector<int> &arr) {
         return ans;
     }
 ```
+## day 261
+[problem link]()
+
+## day 262
+[problem link](https://www.geeksforgeeks.org/problems/total-count2415/1)
+
+# code
+```
+int totalCount(int k, vector<int>& arr) {
+       int cnt=0;
+       for(int i=0;i<arr.size();i++){
+           int val=arr[i]/k;
+           arr[i]%k==0 ? cnt+=(val) : cnt+=(val+1);
+       }
+       return cnt;
+    }
+```
