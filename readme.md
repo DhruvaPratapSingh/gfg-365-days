@@ -275,3 +275,22 @@ int totalCount(int k, vector<int>& arr) {
        return cnt;
     }
 ```
+## day 263
+[problem link](https://www.geeksforgeeks.org/problems/merge-two-bst-s/1)
+
+# code
+```
+void helper(Node* root,vector<int>&ans){
+        if(root==NULL)return ;
+        ans.push_back(root->data);
+        helper(root->left,ans);
+        helper(root->right,ans);
+    }
+    vector<int> merge(Node *root1, Node *root2) {
+       vector<int>ans;
+       helper(root1,ans);
+       helper(root2,ans);
+       sort(ans.begin(),ans.end());
+       return ans;
+}
+```
