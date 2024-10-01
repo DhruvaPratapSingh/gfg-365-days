@@ -298,3 +298,24 @@ void helper(Node* root,vector<int>&ans){
 
 [problem link](https://www.geeksforgeeks.org/problems/multiply-two-linked-lists/1)
 
+## day 265
+[problem link](https://www.geeksforgeeks.org/problems/rotate-and-delete-1587115621/1)
+
+# code
+```
+    int rotateDelete(vector<int> &arr) {
+       int n=arr.size();
+      int k=0;
+      for(int i=0;i<n-1;i++){
+          int val=arr.back();
+          arr.erase(arr.end()-1);
+          arr.insert(arr.begin(),val);
+          k++;
+          if(arr.size()<k){
+              arr.erase(arr.begin());
+          }
+          else arr.erase(arr.end()-k);
+      }
+       return arr[0];
+    }
+```
