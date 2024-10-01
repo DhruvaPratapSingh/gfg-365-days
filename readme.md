@@ -294,3 +294,7 @@ void helper(Node* root,vector<int>&ans){
        return ans;
 }
 ```
+## day 264
+
+[problem link](https://www.geeksforgeeks.org/problems/multiply-two-linked-lists/1)
+
