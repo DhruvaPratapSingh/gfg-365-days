@@ -319,3 +319,26 @@ void helper(Node* root,vector<int>&ans){
        return arr[0];
     }
 ```
+## day 266
+[problem link](https://www.geeksforgeeks.org/problems/majority-vote/1)
+
+# code
+```
+vector<int> findMajority(vector<int>& nums) {
+       unordered_map<int,int>m;
+       int n=nums.size();
+       vector<int>ans;
+      sort(nums.begin(),nums.end());
+       for(int&ele:nums){
+           m[ele]++;
+           if(m[ele]>n/3){
+               auto idx=find(ans.begin(),ans.end(),ele);
+               if(idx==ans.end()){
+                   ans.push_back(ele);
+               }
+           }
+       }
+       if(ans.empty())return {-1};
+       return ans;
+    }
+```
