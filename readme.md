@@ -347,7 +347,7 @@ vector<int> findMajority(vector<int>& nums) {
 
 
 ## day 268
-[problem link]()
+[problem link](https://www.geeksforgeeks.org/problems/smallest-number-subset1220/1)
 
 ## day 269
 [problem link](https://www.geeksforgeeks.org/problems/find-the-number-of-islands/1)
